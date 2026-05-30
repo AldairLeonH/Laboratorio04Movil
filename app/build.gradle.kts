@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.demodataL04"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.demodata_lab04"
@@ -38,9 +38,7 @@ android {
 
 ksp {
     arg("room.generateKotlin", "true")  // Room genera código Kotlin puro (no Java)
-    arg("useK2", "true")                // Compilador Kotlin 2.0
 }
-
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
