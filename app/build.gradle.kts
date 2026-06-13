@@ -98,5 +98,6 @@ dependencies {
     // ── Permisos en tiempo de ejecución para Compose ──
     implementation("com.google.accompanist:accompanist-permissions:0.34.0")
 
-
+        // ── WorkManager (notificaciones diferidas, ejecución en background) ──
+        implementation("androidx.work:work-runtime-ktx:2.9.0")
 }

@@ -18,10 +18,8 @@ class FileStorageManager(private val context: Context) {
     fun newAudioFile(extension: String = "m4a"): File =
         File(audiosDir, "audio_${System.currentTimeMillis()}.$extension")
 
-    /** Elimina el archivo del disco. Retorna true si fue eliminado. */
     fun deleteFile(path: String): Boolean =
         File(path).takeIf { it.exists() }?.delete() ?: false
 
-    /** Lee tamaño en bytes de un archivo existente. */
     fun fileSize(path: String): Long = File(path).length()
 }

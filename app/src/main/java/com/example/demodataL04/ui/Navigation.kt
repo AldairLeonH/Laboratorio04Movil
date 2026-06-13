@@ -23,6 +23,7 @@ import com.example.demodataL04.DemoData
 import com.example.demodataL04.ui.screens.*
 import com.example.demodataL04.ui.viewmodel.SessionViewModel
 
+
 @Composable
 fun Navigation() {
     val app = LocalContext.current.applicationContext as DemoData
@@ -85,10 +86,10 @@ private fun MainScaffold(sessionVm: SessionViewModel) {
             modifier         = Modifier.padding(padding)
         ) {
             composable("gps")     { GpsScreen() }
-//            composable("media")   { MediaScreen() }
-//            composable("audio")   { AudioScreen() }
-//            composable("sync")    { SyncScreen() }
-//            composable("notif")   { NotificationsScreen() }
+            composable("media")   { MediaScreen() }
+            composable("audio")   { AudioScreen() }
+            composable("sync")    { SyncScreen() }
+            composable("notif")   { NotificationsScreen() }
             composable("profile") { ProfileScreen(onLogout = sessionVm::logout, username = username) }
         }
     }
