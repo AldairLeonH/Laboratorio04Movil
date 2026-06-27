@@ -45,7 +45,7 @@ enum class RecordsSource { LOCAL, REMOTE, ALL }
 
 @Composable
 fun ProfileScreen(onLogout: () -> Unit, username: String? = null) {
-    val app = LocalContext.current.applicationContext as DemoDataApp
+    val app = LocalContext.current.applicationContext as DemoData
     val sessionVm: SessionViewModel = viewModel(
         factory = SessionViewModel.Factory(app.sessionManager)
     )
@@ -127,7 +127,7 @@ private fun ProfileMenu(
 @Composable
 private fun RecordsExplorerScreen(title: String, allowedSource: RecordsSource, onBack: () -> Unit) {
     val context      = LocalContext.current
-    val app          = context.applicationContext as DemoDataApp
+    val app          = context.applicationContext as DemoData
 
     val googlePoints  by app.gpsRepository.googlePoints.collectAsStateWithLifecycle(emptyList())
     val sensorsPoints by app.gpsRepository.sensorsPoints.collectAsStateWithLifecycle(emptyList())

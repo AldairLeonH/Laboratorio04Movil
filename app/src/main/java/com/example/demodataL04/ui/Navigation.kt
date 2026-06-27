@@ -25,7 +25,7 @@ import com.example.demodataL04.ui.viewmodel.SessionViewModel
 
 @Composable
 fun Navigation() {
-    val app = LocalContext.current.applicationContext as DemoDataApp
+    val app = LocalContext.current.applicationContext as DemoData
     val sessionVm: SessionViewModel = viewModel(
         factory = SessionViewModel.Factory(app.sessionManager)
     )

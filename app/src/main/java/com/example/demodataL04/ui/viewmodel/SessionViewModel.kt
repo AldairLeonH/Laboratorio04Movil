@@ -3,8 +3,10 @@ package com.example.demodataL04.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.demodataL04.data.remote.NetworkConstants
 import com.example.demodataL04.data.session.SessionManager
-import com.example.demodataL04.data.remote.*
+import com.example.demodataL04.data.remote.model.*
+import com.example.demodataL04.data.remote.RetrofitClient
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.stateIn
@@ -38,7 +40,7 @@ class SessionViewModel(
                 val response = RetrofitClient.apiService.login(
                     projectSlug = NetworkConstants.PROJECT_SLUG,
                     request     = LoginRequest(
-                        email    = email,
+                        email = email,
                         password = password,
                         deviceId = sessionManager.getDeviceId()
                     )
@@ -76,7 +78,7 @@ class SessionViewModel(
                 val response = RetrofitClient.apiService.loginWithGoogle(
                     projectSlug = NetworkConstants.PROJECT_SLUG,
                     request     = GoogleLoginRequest(
-                        token    = googleToken,
+                        token = googleToken,
                         deviceId = sessionManager.getDeviceId()
                     )
                 )
