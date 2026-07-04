@@ -27,7 +27,7 @@ import coil.compose.AsyncImage
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
-import com.example.demodataL04.DemoDataApp
+import com.example.demodataL04.DemoData
 import com.example.demodataL04.data.local.entity.MediaEntity
 import com.example.demodataL04.data.local.entity.MediaType
 import com.example.demodataL04.ui.viewmodel.MediaViewModel
@@ -40,7 +40,7 @@ import java.util.Locale
 @Composable
 fun MediaScreen() {
     val context = LocalContext.current
-    val app = context.applicationContext as DemoDataApp
+    val app = context.applicationContext as DemoData
     val vm: MediaViewModel = viewModel(
         factory = MediaViewModel.Factory(app.mediaRepository, app.fileStorage)
     )

@@ -13,11 +13,15 @@ androidxRoom = "2.8.4"
 retrofit                 = "2.11.0"
 okhttp                   = "4.12.0"
 kotlinxSerializationJson = "1.7.3"
-
+# ... versiones previas sin cambios ...
+credentials = "1.3.0"                       # ← NUEVO
+googleid    = "1.1.1"                       # ← NUEVO
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-
+androidx-credentials = { group = "androidx.credentials",                             name = "credentials",                    version.ref = "credentials" }  # ← NUEVO
+androidx-credentials-play-services-auth = { group = "androidx.credentials",                             name = "credentials-play-services-auth", version.ref = "credentials" }  # ← NUEVO
+googleid                               = { group = "com.google.android.libraries.identity.googleid",   name = "googleid",                       version.ref = "googleid" }     # ← NUEVO
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

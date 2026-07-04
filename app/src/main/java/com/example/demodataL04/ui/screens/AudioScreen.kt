@@ -22,7 +22,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
-import com.example.demodataL04.DemoDataApp
+import com.example.demodataL04.DemoData
 import com.example.demodataL04.data.local.entity.AudioEntity
 import com.example.demodataL04.ui.viewmodel.AudioViewModel
 import java.text.SimpleDateFormat
@@ -33,7 +33,7 @@ import java.util.Locale
 @Composable
 fun AudioScreen() {
     val context = LocalContext.current
-    val app     = context.applicationContext as DemoDataApp
+    val app     = context.applicationContext as DemoData
     val vm: AudioViewModel = viewModel(
         factory = AudioViewModel.Factory(
             context.applicationContext,

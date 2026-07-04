@@ -15,13 +15,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.demodataL04.DemoDataApp
+import com.example.demodataL04.DemoData
 import com.example.demodataL04.ui.viewmodel.SyncViewModel
 
 @Composable
 fun SyncScreen() {
     val context = LocalContext.current
-    val app     = context.applicationContext as DemoDataApp
+    val app     = context.applicationContext as DemoData
     val vm: SyncViewModel = viewModel(
         factory = SyncViewModel.Factory(app.gpsRepository, app.mediaRepository, app.audioRepository)
     )
