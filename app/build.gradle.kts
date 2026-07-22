@@ -35,6 +35,9 @@ android {
     buildFeatures {
         compose = true
     }
+    androidResources {
+        noCompress += "tflite"
+    }
 }
 
 ksp {
@@ -93,6 +96,10 @@ dependencies {
     implementation("androidx.camera:camera-view:$cameraxVersion")
     implementation("androidx.camera:camera-video:$cameraxVersion")
 
+    implementation(libs.litert)
+    implementation(libs.litert.gpu)
+    implementation(libs.litert.support)
+
     // ── Coil (thumbnails de fotos/videos en LazyColumn) ──
     implementation("io.coil-kt:coil-compose:2.7.0")
 
@@ -112,4 +119,5 @@ dependencies {
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
+
 }

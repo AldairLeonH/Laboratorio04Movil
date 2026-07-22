@@ -74,6 +74,8 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
+            android:screenOrientation="fullSensor"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:theme="@style/Theme.Demodata_lab04">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
