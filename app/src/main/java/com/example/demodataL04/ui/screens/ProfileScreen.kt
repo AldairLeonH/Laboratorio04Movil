@@ -33,13 +33,19 @@ import com.example.demodataL04.data.local.entity.GpsGoogleEntity
 import com.example.demodataL04.data.local.entity.GpsSensorsEntity
 import com.example.demodataL04.data.local.entity.MediaEntity
 import com.example.demodataL04.data.local.entity.MediaType
+import com.example.demodataL04.data.remote.model.GeoEventResponse
 import com.example.demodataL04.ui.viewmodel.SessionViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
+import com.example.demodataL04.data.remote.NetworkConstants
+import com.example.demodataL04.data.remote.RetrofitClient
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.text.SimpleDateFormat
+import java.time.Instant
 import java.util.Date
 import java.util.Locale
+import kotlin.collections.emptyList
 
 enum class RecordsSource { LOCAL, REMOTE, ALL }
 
@@ -62,8 +68,21 @@ fun ProfileScreen(onLogout: () -> Unit, username: String? = null) {
             onNavigateToNotifications = { viewState = ProfileViewState.Notifications }
         )
         ProfileViewState.MyProfile     -> MyProfileScreen(username = username, sessionVm = sessionVm, onBack = { viewState = ProfileViewState.Menu })
-        ProfileViewState.LocalRecords  -> RecordsExplorerScreen(title = "Registros locales", allowedSource = RecordsSource.LOCAL, onBack = { viewState = ProfileViewState.Menu })
-        ProfileViewState.AllRecords    -> RecordsExplorerScreen(title = "Todos los registros", allowedSource = RecordsSource.ALL, onBack = { viewState = ProfileViewState.Menu })
+        ProfileViewState.LocalRecords ->
+            RecordsExplorerScreen(
+                title = "Registros locales",
+                allowedSource = RecordsSource.LOCAL,
+                sessionVm = sessionVm,
+                onBack = { viewState = ProfileViewState.Menu }
+            )
+
+        ProfileViewState.AllRecords ->
+            RecordsExplorerScreen(
+                title = "Todos los registros",
+                allowedSource = RecordsSource.ALL,
+                sessionVm = sessionVm,
+                onBack = { viewState = ProfileViewState.Menu }
+            )
         ProfileViewState.Sync          -> NestedScreen(title = "Sincronización",  onBack = { viewState = ProfileViewState.Menu }) { SyncScreen() }
         ProfileViewState.Notifications -> NestedScreen(title = "Notificaciones",  onBack = { viewState = ProfileViewState.Menu }) { NotificationsScreen() }
     }
